@@ -49,6 +49,7 @@ namespace Vidly.Controllers
             return View(customer);
         }
 
+        [HttpPost]
         public ActionResult Save(Customer customer)
         {
             if(customer.Id == 0) 

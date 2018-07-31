@@ -14,6 +14,7 @@ namespace Vidly.Models
         [StringLength(255)]
         public string Name { get; set; }
 
+        [Display(Name="Supprier to new Letter?")]
         public bool IsSuprierToNewLetter { get; set; }
 
         
