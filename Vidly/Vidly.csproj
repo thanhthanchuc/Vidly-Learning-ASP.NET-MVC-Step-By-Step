@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201807310806519_AddDataToCustomerForTest.Designer.cs">
       <DependentUpon>201807310806519_AddDataToCustomerForTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807310832345_AddAnnotationsForCustomers.cs" />
+    <Compile Include="Migrations\201807310832345_AddAnnotationsForCustomers.Designer.cs">
+      <DependentUpon>201807310832345_AddAnnotationsForCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -326,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807310806519_AddDataToCustomerForTest.resx">
       <DependentUpon>201807310806519_AddDataToCustomerForTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310832345_AddAnnotationsForCustomers.resx">
+      <DependentUpon>201807310832345_AddAnnotationsForCustomers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
