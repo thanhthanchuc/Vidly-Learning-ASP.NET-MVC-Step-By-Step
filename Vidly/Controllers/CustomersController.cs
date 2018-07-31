@@ -31,7 +31,7 @@ namespace Vidly.Controllers
             {
                 MembershipTypes = membershipTypes
             };
-            return View(viewModel);
+            return View("CustomerForm", viewModel);
         }
 
         // GET: Customers
@@ -49,15 +49,34 @@ namespace Vidly.Controllers
             return View(customer);
         }
 
-        public ActionResult Create(Customer customer)
+        public ActionResult Save(Customer customer)
         {
+            if(customer.Id == 0) 
+                _context.Customers.Add(customer);
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                customerInDb.BirthDay = customer.BirthDay;
+                customerInDb.Name = customer.Name;
+                customerInDb.IsSuprierToNewLetter = customer.IsSuprierToNewLetter;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.Include(m => m.MembershipType).Single(c => c.Id == id);
+            if (customer == null)
+                return HttpNotFound();
             var viewModel = new CustomerFormViewModel()
             {
-                Customer = customer
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
             };
-            _context.Customers.Add(customer);
-            _context.SaveChanges();
-            return RedirectToAction("Index", "Customers", viewModel);
+
+            return View("CustomerForm", viewModel);
         }
     }
 }
