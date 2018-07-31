@@ -23,7 +23,10 @@ namespace Vidly.Models
         [Required]
         public int NumberInStock { get; set; }
 
+
         public Genre Genre { get; set; }
+
+        [Required]
         public int GenreId { get; set; }
     }
 }
