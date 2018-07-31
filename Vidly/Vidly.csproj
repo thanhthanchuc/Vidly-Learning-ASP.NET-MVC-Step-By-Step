@@ -214,6 +214,14 @@
     <Compile Include="Migrations\201807310740049_AddCustomerAndMembershipTypeAndForegnKey1.Designer.cs">
       <DependentUpon>201807310740049_AddCustomerAndMembershipTypeAndForegnKey1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807310802385_PopulateMembershipType.cs" />
+    <Compile Include="Migrations\201807310802385_PopulateMembershipType.Designer.cs">
+      <DependentUpon>201807310802385_PopulateMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807310806519_AddDataToCustomerForTest.cs" />
+    <Compile Include="Migrations\201807310806519_AddDataToCustomerForTest.Designer.cs">
+      <DependentUpon>201807310806519_AddDataToCustomerForTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -310,6 +318,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807310740049_AddCustomerAndMembershipTypeAndForegnKey1.resx">
       <DependentUpon>201807310740049_AddCustomerAndMembershipTypeAndForegnKey1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310802385_PopulateMembershipType.resx">
+      <DependentUpon>201807310802385_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310806519_AddDataToCustomerForTest.resx">
+      <DependentUpon>201807310806519_AddDataToCustomerForTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
