@@ -238,12 +238,26 @@
     <Compile Include="Migrations\201807310844186_AddBirthDateForCustomer.Designer.cs">
       <DependentUpon>201807310844186_AddBirthDateForCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807310902296_AddMovie_Genre.cs" />
+    <Compile Include="Migrations\201807310902296_AddMovie_Genre.Designer.cs">
+      <DependentUpon>201807310902296_AddMovie_Genre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807310903555_PopulateGenre.cs" />
+    <Compile Include="Migrations\201807310903555_PopulateGenre.Designer.cs">
+      <DependentUpon>201807310903555_PopulateGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807310908218_AddDataToMovieForTest.cs" />
+    <Compile Include="Migrations\201807310908218_AddDataToMovieForTest.Designer.cs">
+      <DependentUpon>201807310908218_AddDataToMovieForTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
@@ -354,6 +368,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807310844186_AddBirthDateForCustomer.resx">
       <DependentUpon>201807310844186_AddBirthDateForCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310902296_AddMovie_Genre.resx">
+      <DependentUpon>201807310902296_AddMovie_Genre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310903555_PopulateGenre.resx">
+      <DependentUpon>201807310903555_PopulateGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310908218_AddDataToMovieForTest.resx">
+      <DependentUpon>201807310908218_AddDataToMovieForTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
