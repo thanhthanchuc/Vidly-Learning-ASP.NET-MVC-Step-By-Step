@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201807310737305_AddCustomerAndMembershipTypeAndForegnKey.Designer.cs">
       <DependentUpon>201807310737305_AddCustomerAndMembershipTypeAndForegnKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807310740049_AddCustomerAndMembershipTypeAndForegnKey1.cs" />
+    <Compile Include="Migrations\201807310740049_AddCustomerAndMembershipTypeAndForegnKey1.Designer.cs">
+      <DependentUpon>201807310740049_AddCustomerAndMembershipTypeAndForegnKey1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -300,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807310737305_AddCustomerAndMembershipTypeAndForegnKey.resx">
       <DependentUpon>201807310737305_AddCustomerAndMembershipTypeAndForegnKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310740049_AddCustomerAndMembershipTypeAndForegnKey1.resx">
+      <DependentUpon>201807310740049_AddCustomerAndMembershipTypeAndForegnKey1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
