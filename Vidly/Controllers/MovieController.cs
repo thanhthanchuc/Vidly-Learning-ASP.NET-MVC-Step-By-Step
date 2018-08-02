@@ -27,6 +27,7 @@ namespace Vidly.Controllers
         {
             var viewModel = new MovieFormViewModel()
             {
+                Movie = new Movie(),
                 Genres = _context.Genres.ToList()
             };
             return View("MovieForm", viewModel);
@@ -35,8 +36,8 @@ namespace Vidly.Controllers
         // GET: Movie
         public ActionResult Index()
         {
-            var moves = _context.Movies.Include(g => g.Genre).ToList();
-            return View(moves);
+            var movie = _context.Movies.Include(c => c.Genre).ToList();
+            return View(movie);
         }
 
         public ActionResult Details(int id)
@@ -48,8 +49,18 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModels = new MovieFormViewModel()
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MovieForm", viewModels);
+            }
             if(movie.Id == 0)
                 _context.Movies.Add(movie);
             else
@@ -67,6 +78,15 @@ namespace Vidly.Controllers
 
         public ActionResult Edit(int id)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModels = new MovieFormViewModel()
+                {
+                    Movie = _context.Movies.Include(g=>g.Genre).SingleOrDefault(m=>m.Id == id),
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MovieForm", viewModels);
+            }
             var movie = _context.Movies.Include(g => g.Genre).SingleOrDefault(m => m.Id == id);
             if (movie == null) return HttpNotFound();
          

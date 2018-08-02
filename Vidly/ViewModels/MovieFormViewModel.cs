@@ -10,5 +10,7 @@ namespace Vidly.ViewModels
     {
         public Movie Movie { get; set; }
         public IEnumerable<Genre> Genres { get; set; }
+        public string Input { get; set; }
+        public IEnumerable<Movie> Movies { get; set; }
     }
 }
