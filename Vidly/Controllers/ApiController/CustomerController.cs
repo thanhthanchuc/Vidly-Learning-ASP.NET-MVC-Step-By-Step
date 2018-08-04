@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using Vidly.Models;
 using System.Web.Http;
+using AutoMapper;
+using Vidly.DTO;
 
 namespace Vidly.Controllers.ApiController
 {
@@ -18,46 +20,47 @@ namespace Vidly.Controllers.ApiController
         }
 
         //get api/customers
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<CustomerDto> GetCustomers()
         {
-            return _context.Customers.ToList();
+            return _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
         }
 
         //get api/customers/1
-        public Customer GetCustomer(int id)
+        public CustomerDto GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
             if (customer == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            return customer;
+            return Mapper.Map<Customer, CustomerDto>(customer);
         }
 
 
         //add api/customer
         [HttpPost]
-        public Customer CreateCustomer(Customer customer)
+        public CustomerDto CreateCustomer(CustomerDto customerDto)
         {
             if(!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
+
+            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
             _context.Customers.Add(customer);
             _context.SaveChanges();
-            return customer;
+            customerDto.Id = customer.Id;
+            return customerDto;
         }
 
         //put apt/customer/1
         [HttpPut]
-        public void PutCustomer(int id, Customer customer)
+        public void PutCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
             if(customerInDb==null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
-            customerInDb.Name = customer.Name;
-            customerInDb.BirthDay = customer.BirthDay;
-            customerInDb.IsSuprierToNewLetter = customer.IsSuprierToNewLetter;
-            customerInDb.MembershipTypeId = customer.MembershipTypeId;
+
+            Mapper.Map(customerDto, customerInDb);
 
             _context.SaveChanges();
         }
