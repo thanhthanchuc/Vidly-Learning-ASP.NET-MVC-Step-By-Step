@@ -217,6 +217,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="DTO\CustomerDto.cs" />
+    <Compile Include="DTO\MembershipTypeDto.cs" />
     <Compile Include="DTO\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
