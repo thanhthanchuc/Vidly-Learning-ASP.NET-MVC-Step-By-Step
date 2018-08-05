@@ -7,6 +7,7 @@ using System.Web.Http;
 using AutoMapper;
 using Vidly.DTO;
 using Vidly.Models;
+using System.Data.Entity;
 
 namespace Vidly.Controllers.ApiController
 {
@@ -25,9 +26,9 @@ namespace Vidly.Controllers.ApiController
         }
 
         //get api/movies
-        public IEnumerable<MovieDto> GetMovies()
+        public IEnumerable<Movie> GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            return _context.Movies.Include(m=>m.Genre).ToList();
         }
 
         //get apt/movie/1
